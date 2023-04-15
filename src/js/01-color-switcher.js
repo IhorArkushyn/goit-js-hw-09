@@ -1,6 +1,6 @@
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
-// const body = document.querySelector('body');
+
 
 startBtn.addEventListener('click', onStartChangeColor);
 stopBtn.addEventListener('click', onStopChangeColor);
@@ -17,16 +17,7 @@ function onStopChangeColor() {
   startBtn.disabled = false;
 }
 
-// changeColorBtn.addEventListener("click", () => {
-//   let hexColor = getRandomHexColor();
-//   document.body.style.backgroundColor = hexColor;
-//   colorName.textContent = hexColor;
-// });
-// const onClick = () => {
-//   setTimeout(() => {
-//     alert("I love async JS!");
-//   }, 2000);
-// };
+
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
