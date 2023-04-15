@@ -13,7 +13,7 @@ const days = timer.children;
 const values = document.querySelectorAll('span.value');
 const labels = document.querySelectorAll('span.label');
 
-startTimerBtn.disabled = true;
+// startTimerBtn.disabled = true;
 
 document.body.style.backgroundColor = '#ece5da';
 
@@ -42,21 +42,30 @@ labels.forEach(label => {
    color: #231852;
    text-transform: uppercase`;
 });
-
+startTimerBtn.disabled = true;
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] < Date.now()) {
+    if (selectedDates[0] <= Date.now()) {
+      startTimerBtn.disabled = true;
       Notify.failure('Please choose a date in the future');
       return;
-    } else if (selectedDates[0] > Date.now()) {
-      startTimerBtn.disabled = false;
     }
+      startTimerBtn.disabled = false;
+    
   },
+  // onChange(selectedDates) {
+  //   if (selectedDates[0] > Date.now()) {
+  //     startTimerBtn.removeAttribute('disabled');
+  //   } else {
+  //     startTimerBtn.setAttribute('disabled', 'disabled');
+  //   }
+  // },
 };
+
 flatpickr(dateInput, options);
 
 let deltaDate = 1;
@@ -99,5 +108,3 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 startTimerBtn.addEventListener('click', onStartBtn);
-
-
