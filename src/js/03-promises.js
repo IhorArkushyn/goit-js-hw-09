@@ -4,6 +4,7 @@ const submitForm = document.querySelector('.form');
 const firstDelay = document.querySelector('[name="delay"]');
 const delayStep = document.querySelector('[name="step"]');
 const amountPromise = document.querySelector('[name="amount"]');
+const createPromisesBtn = document.querySelector('button');
 
 submitForm.addEventListener('submit', onSubmit);
 
@@ -23,14 +24,13 @@ function createPromise(position, delay) {
 
 function onSubmit(e) {
   e.preventDefault();
-
+  createPromisesBtn.disabled = true;
   const valueFirstDelay = Number(firstDelay.value);
   const valueStep = Number(delayStep.value);
   const valueAmount = Number(amountPromise.value);
 
   for (let i = 1; i <= valueAmount; i += 1) {
     let promiseDelay = valueFirstDelay + valueStep * i;
-
     createPromise(i, promiseDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -38,5 +38,8 @@ function onSubmit(e) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
+    
+    // if(Promise.resolved ||)
   }
+  setTimeout(() => {}, (promiseDelay = valueFirstDelay + valueStep * i));
 }
