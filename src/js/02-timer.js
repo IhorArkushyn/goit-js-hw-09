@@ -13,8 +13,6 @@ const days = timer.children;
 const values = document.querySelectorAll('span.value');
 const labels = document.querySelectorAll('span.label');
 
-// startTimerBtn.disabled = true;
-
 document.body.style.backgroundColor = '#ece5da';
 
 startTimerBtn.style.cursor = 'pointer';
@@ -54,16 +52,8 @@ const options = {
       Notify.failure('Please choose a date in the future');
       return;
     }
-      startTimerBtn.disabled = false;
-    
+    startTimerBtn.disabled = false;
   },
-  // onChange(selectedDates) {
-  //   if (selectedDates[0] > Date.now()) {
-  //     startTimerBtn.removeAttribute('disabled');
-  //   } else {
-  //     startTimerBtn.setAttribute('disabled', 'disabled');
-  //   }
-  // },
 };
 
 flatpickr(dateInput, options);
@@ -108,3 +98,5 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 startTimerBtn.addEventListener('click', onStartBtn);
+
+
