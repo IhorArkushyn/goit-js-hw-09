@@ -38,8 +38,5 @@ function onSubmit(e) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    
-
   }
-  setTimeout(() => {}, (promiseDelay = valueFirstDelay + valueStep * i));
 }
