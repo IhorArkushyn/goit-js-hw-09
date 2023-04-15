@@ -9,29 +9,38 @@ const timerHours = document.querySelector('[data-hours]');
 const timerMinutes = document.querySelector('[data-minutes]');
 const timerSeconds = document.querySelector('[data-seconds]');
 const timer = document.querySelector('div.timer');
-const days = document.querySelectorAll('div.field');
+const days = timer.children;
 const values = document.querySelectorAll('span.value');
+const labels = document.querySelectorAll('span.label');
 
 startTimerBtn.disabled = true;
 
 document.body.style.backgroundColor = '#ece5da';
+
 startTimerBtn.style.cursor = 'pointer';
+
 timer.style.cssText = `
 margin-top: 40px;
 display: flex;
 gap: 15px`;
 
-days.forEach(day => {
+for (const day of days) {
   day.style.cssText = `
     display: flex;
     flex-direction: column;
     align-items: center`;
-});
+}
 
 values.forEach(value => {
   value.style.cssText = `
     font-size: 40px;
-    color: #3c9111`;
+    color: #231852`;
+});
+
+labels.forEach(label => {
+  label.style.cssText = `
+   color: #231852;
+   text-transform: uppercase`;
 });
 
 const options = {
