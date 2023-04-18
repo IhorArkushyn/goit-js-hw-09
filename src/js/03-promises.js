@@ -29,7 +29,7 @@ function onSubmit(e) {
   const valueStep = Number(delayStep.value);
   const valueAmount = Number(amountPromise.value);
 
-  for (let i = 1; i <= valueAmount; i += 1) {
+  for (let i = 0; i < valueAmount; i += 1) {
     let promiseDelay = valueFirstDelay + valueStep * i;
     createPromise(i, promiseDelay)
       .then(({ position, delay }) => {

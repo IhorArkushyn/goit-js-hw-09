@@ -1,0 +1,10 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+const submitForm = document.querySelector('.form');
+const firstDelay = document.querySelector('[name="delay"]');
+const delayStep = document.querySelector('[name="step"]');
+const amountPromise = document.querySelector('[name="amount"]');
+const createPromisesBtn = document.querySelector('button');
+
+submitForm.addEventListener('submit', onSubmit);
+
